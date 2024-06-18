@@ -1,24 +1,46 @@
 {
-  "name": "standard-nextjs",
-  "version": "0.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "sst dev",
-    "build": "sst build",
-    "deploy": "sst deploy",
-    "remove": "sst remove",
-    "console": "sst console",
-    "typecheck": "tsc --noEmit"
-  },
+  "dependencies": {
+	},
   "devDependencies": {
-    "sst": "^2.40.6",
+		"@testing-library/jest-dom": "^6.4.2",
+		"@testing-library/react": "^15.0.5",
+    "@tsconfig/node18": "^18.2.2",
+		"@types/node": "^20.11.24",
+		"@types/react": "^18.2.61",
+		"@types/react-dom": "^18.2.19",
+		"@types/react-transition-group": "^4.4.1",
     "aws-cdk-lib": "2.124.0",
     "constructs": "10.3.0",
-    "typescript": "^5.3.3",
-    "@tsconfig/node18": "^18.2.2"
+		"prettier": "^3.2.5",
+		"node-sass": "^9.0.0",
+		"sass": "^1.77.4",
+    "sst": "^2.40.6",
+		"stylelint": "^16.4.0",
+		"stylelint-config-standard": "^36.0.0",
+		"stylelint-scss": "^6.2.1",
+		"ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+  "name": "standard-nextjs",
+  "private": true,
+  "scripts": {
+    "build": "sst build",
+    "console": "sst console",
+    "deploy": "sst deploy",
+    "dev": "sst dev",
+		"format": "prettier --write .",
+		"lint": "next lint",
+		"prepare": "husky",
+		"stylelint": "stylelint --fix '**/*.{css,scss}'",
+    "remove": "sst remove",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module",
+  "version": "0.0.0",
+  "workspaces": ["packages/*"]
 }
